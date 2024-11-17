@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 
-const Navbar = () => {
+const Header = () => {
     const { name } = useContext(AuthContext);
     
     return (
@@ -12,4 +12,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Header;
