@@ -70,8 +70,8 @@ const Header = () => {
           </div>
           <div className="navbar-end">
                     <div className="flex space-x-4">
-                        <Link to='/login'>Login</Link>
-                        <Link to='/register'>Register</Link>
+                        <NavLink to='/login'>Login</NavLink>
+                        <NavLink to='/register'>Register</NavLink>
             </div>
           </div>
         </div>

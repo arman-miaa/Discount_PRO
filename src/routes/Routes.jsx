@@ -4,13 +4,16 @@ import ErrorPage from "../pages/ErrorPage";
 import Brands from "../pages/Brands";
 import MyProfile from "../private/MyProfile";
 import AboutDev from "../pages/AboutDev";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import MainLayout from "../layouts/MainLayout";
 
 
 const router = createBrowserRouter(
   [
     {
       path: "/",
-      element: <Home></Home>,
+      element: <MainLayout></MainLayout>,
       errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
@@ -28,6 +31,14 @@ const router = createBrowserRouter(
         {
           path: "aboutDev",
           element: <AboutDev></AboutDev>,
+        },
+        {
+          path: 'login',
+          element:<Login></Login>,
+        },
+        {
+          path: 'register',
+          element:<Register></Register>,
         },
       ],
     },
