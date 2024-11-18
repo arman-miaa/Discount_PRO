@@ -3,28 +3,39 @@ import { IoIosHome } from "react-icons/io";
 import { MdBrandingWatermark } from "react-icons/md";
 import { RiProfileFill } from "react-icons/ri";
 import { FcAbout } from "react-icons/fc";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
+
+  const { user, handleLogOut } = useContext(AuthContext);
+  console.log(user);
+
+  const handleSinOut = () => {
+    handleLogOut();
+  }
 
     const links = (
       <>
         <li>
-          <NavLink to='/'>
+          <NavLink to="/">
             <IoIosHome /> Home
           </NavLink>
         </li>
         <li>
-          <NavLink to='/brands'>
+          <NavLink to="/brands">
             <MdBrandingWatermark /> Brands
           </NavLink>
         </li>
+        {user && (
+          <li>
+            <NavLink to="/myProfile">
+              <RiProfileFill /> My-Profile
+            </NavLink>
+          </li>
+        )}
         <li>
-          <NavLink to='/myProfile'>
-            <RiProfileFill /> My-Profile
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/aboutDev'>
+          <NavLink to="/aboutDev">
             <FcAbout /> About Dev
           </NavLink>
         </li>
@@ -65,14 +76,34 @@ const Header = () => {
             </div>
             <a className="btn btn-ghost text-xl">Discount PRO</a>
           </div>
+
           <div className="navbar-center hidden lg:flex">
+            <div className="">
+              { user?.displayName ? (
+                <div className="">
+                  {" "}
+                  welcome! <span className="text-orange-800">{user.displayName}</span>
+                </div>
+              ) : (
+                "ami tom "
+              )}
+            </div>
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
           <div className="navbar-end">
-                    <div className="flex space-x-4">
-                        <NavLink to='/login'>Login</NavLink>
-                        <NavLink to='/register'>Register</NavLink>
-            </div>
+            {user?.email ? (
+              <div className="flex space-x-4">
+                <NavLink to="/login">{user.email}</NavLink>
+                <NavLink onClick={handleLogOut} to="/register">
+                  LogOut
+                </NavLink>
+              </div>
+            ) : (
+              <div className="flex space-x-4">
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/register">Register</NavLink>
+              </div>
+            )}
           </div>
         </div>
       </div>

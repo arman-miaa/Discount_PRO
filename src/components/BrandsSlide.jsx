@@ -10,7 +10,7 @@ const BrandsSlide = () => {
       .then(res => res.json())
     .then(data=>setImages(data))
   },[])
-  console.log(images);
+  // console.log(images);
   return (
     <div>
       brand slide
