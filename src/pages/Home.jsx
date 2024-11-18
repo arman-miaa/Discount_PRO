@@ -1,10 +1,16 @@
+import Banner from "../components/Banner";
+import BrandsSlide from "../components/BrandsSlide";
+import TopBrands from "../components/TopBrands";
 
 
 
 const Home = () => {
     return (
         <div className="container mx-auto py-4">
-            home layout...
+            <Banner></Banner>
+            <TopBrands></TopBrands>
+
+            <BrandsSlide></BrandsSlide>
         </div>
     );
 };

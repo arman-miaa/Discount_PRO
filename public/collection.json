@@ -1,0 +1,130 @@
+[
+  {
+    "_id": 1,
+    "brand_name": "Daraz",
+    "rating": 4.5,
+    "description": "Biggest e-commerce platform in Bangladesh offering amazing deals.",
+    "brand_logo": "https://i.ibb.co.com/S0L29pW/daraz-bangladesh.jpg",
+    "coupons": [
+      {
+        "coupon_code": "DARAZ20",
+        "description": "20% off on electronics",
+        "expiry_date": "2024-12-31",
+        "condition": "Minimum purchase of BDT 2000",
+        "coupon_type": "percentage"
+      },
+      {
+        "coupon_code": "FREESHIP",
+        "description": "Free shipping on orders above BDT 1000",
+        "expiry_date": "2024-11-30",
+        "condition": "Applicable on all categories",
+        "coupon_type": "free shipping"
+      }
+    ],
+    "shop_Link": "https://www.daraz.com.bd",
+    "category": "E-commerce",
+    "isSaleOn": true
+  },
+  {
+    "_id": 2,
+    "brand_name": "Foodpanda",
+    "rating": 4.2,
+    "description": "Get your favorite meals delivered at your doorstep.",
+    "brand_logo": "https://i.ibb.co.com/6WDG178/foodpanda-logo-RGB-stacked.png",
+    "coupons": [
+      {
+        "coupon_code": "FOODIE50",
+        "description": "50% off on first order",
+        "expiry_date": "2024-12-15",
+        "condition": "Maximum discount BDT 150",
+        "coupon_type": "percentage"
+      },
+      {
+        "coupon_code": "MEAL10",
+        "description": "10% off on all orders",
+        "expiry_date": "2024-11-25",
+        "condition": "No minimum purchase required",
+        "coupon_type": "percentage"
+      }
+    ],
+    "shop_Link": "https://www.foodpanda.com.bd",
+    "category": "Food Delivery",
+    "isSaleOn": true
+  },
+  {
+    "_id": 3,
+    "brand_name": "Bikroy",
+    "rating": 4.0,
+    "description": "Buy and sell products with ease.",
+    "brand_logo": "https://i.ibb.co.com/1zV6tf9/unnamed.webp",
+    "coupons": [
+      {
+        "coupon_code": "SELLFAST",
+        "description": "Free listing for 7 days",
+        "expiry_date": "2024-12-10",
+        "condition": "For new users only",
+        "coupon_type": "service"
+      }
+    ],
+    "shop_Link": "https://www.bikroy.com",
+    "category": "Marketplace",
+    "isSaleOn": false
+  },
+  {
+    "_id": 4,
+    "brand_name": "Rokomary",
+    "rating": 4.7,
+    "description": "Get groceries delivered to your home.",
+    "brand_logo": "https://i.ibb.co.com/vdNLHjm/1583844005259.jpg",
+    "coupons": [
+      {
+        "coupon_code": "GROCERY10",
+        "description": "10% off on fresh produce",
+        "expiry_date": "2024-12-01",
+        "condition": "Minimum purchase BDT 500",
+        "coupon_type": "percentage"
+      }
+    ],
+    "shop_Link": "https://www.chaldal.com",
+    "category": "Groceries",
+    "isSaleOn": true
+  },
+  {
+    "_id": 5,
+    "brand_name": "Aarong",
+    "rating": 4.3,
+    "description": "Fast and reliable ride-sharing service.",
+    "brand_logo": "https://i.ibb.co.com/p4Q9MWG/aarong-logo.jpg",
+    "coupons": [
+      {
+        "coupon_code": "RIDE50",
+        "description": "50% off on first 3 rides",
+        "expiry_date": "2024-11-20",
+        "condition": "Maximum discount BDT 100 per ride",
+        "coupon_type": "percentage"
+      }
+    ],
+    "shop_Link": "https://www.pathao.com",
+    "category": "Transportation",
+    "isSaleOn": true
+  },
+  {
+    "_id": 6,
+    "brand_name": "Pickaboo",
+    "rating": 4.4,
+    "description": "Exclusive gadgets and electronics at great prices.",
+    "brand_logo": "https://i.ibb.co.com/ydw16zB/pickaboo.webp",
+    "coupons": [
+      {
+        "coupon_code": "BOO50",
+        "description": "BDT 50 off on all purchases",
+        "expiry_date": "2024-12-31",
+        "condition": "No minimum purchase required",
+        "coupon_type": "fixed discount"
+      }
+    ],
+    "shop_Link": "https://www.pickaboo.com",
+    "category": "Electronics",
+    "isSaleOn": false
+  }
+]
