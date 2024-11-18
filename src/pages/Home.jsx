@@ -1,4 +1,5 @@
 import Banner from "../components/Banner";
+import BrandsOnSell from "../components/BrandsOnSell";
 import BrandsSlide from "../components/BrandsSlide";
 import TopBrands from "../components/TopBrands";
 
@@ -11,6 +12,7 @@ const Home = () => {
             <TopBrands></TopBrands>
 
             <BrandsSlide></BrandsSlide>
+            <BrandsOnSell></BrandsOnSell>
         </div>
     );
 };
