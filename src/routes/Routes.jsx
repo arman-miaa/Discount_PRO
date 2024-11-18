@@ -7,6 +7,7 @@ import AboutDev from "../pages/AboutDev";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import MainLayout from "../layouts/MainLayout";
+import BrandDetails from "../private/BrandDetails";
 
 
 const router = createBrowserRouter(
@@ -41,6 +42,15 @@ const router = createBrowserRouter(
         {
           path: "register",
           element: <Register></Register>,
+        },
+        {
+          path: "/brandDetails/:id",
+          element: <BrandDetails />,
+          loader: async ({ params }) => {
+            const response = await fetch("/collection.json");
+            const data = await response.json();
+            return data.find((brand) => brand._id === parseInt(params.id)); 
+          },
         },
       ],
     },

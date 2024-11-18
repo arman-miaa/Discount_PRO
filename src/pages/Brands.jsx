@@ -1,7 +1,12 @@
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Brands = () => {
+    // const { user } = useContext(AuthContext);
+    // console.log(user);
+    //  const  data  = useLoaderData();
+    //  console.log(data);
     const [searchText, setSearchText] = useState("");
     const brands  = useLoaderData();
     console.log(brands);
@@ -24,7 +29,6 @@ const Brands = () => {
         <div className="grid grid-cols-1 gap-8">
           {brands.map((brand) => (
             <div key={brand._id}>
-              
               <div className="bg-blue-200 p-6 rounded-xl border-2">
                 {/* logo , name */}
                 <div className="flex gap-6 items-center">
@@ -39,10 +43,19 @@ const Brands = () => {
                 <h3>{brand.description}</h3>
                 {/* btn  */}
                 <div className="flex items-center gap-4 mt-4">
-                  <button className="btn btn-primary">View Coupons</button>
+                  <Link
+                    to={`/brandDetails/${brand._id}`}
+                    className="btn btn-primary"
+                  >
+                    View Coupons
+                  </Link>
 
                   <div className="">
-                    {brand?.isSaleOn ? <h3 className="btn btn-secondary">sale is on</h3> : ""}
+                    {brand?.isSaleOn ? (
+                      <h3 className="btn btn-secondary">sale is on</h3>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>
