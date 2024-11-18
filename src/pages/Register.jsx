@@ -34,6 +34,7 @@ const Register = () => {
     handleSignUpUser(email, password)
       .then((result) => {
         setUser(result.user);
+        navigate("/");
 
         // Update user profile
         updateUserProfile({ displayName: name, photoURL: photo })

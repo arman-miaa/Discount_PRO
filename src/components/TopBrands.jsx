@@ -37,11 +37,21 @@ const TopBrands = () => {
         Top Brands
       </h1>
 
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 gap-8 mt-8">
         {brands.map((brand) => (
-          <div key={brand._id} brand={brand}>
-            <p>{brand.brand_name}</p>
-            <p>{brand.category}</p>
+          <div
+            className="border rounded-lg shadow-md p-4 flex flex-col items-center"
+            key={brand._id}
+            brand={brand}
+          >
+            <img
+              src={brand.brand_logo}
+              alt={brand.brand_name}
+              className="w-24 h-24 object-cover mb-4"
+            />
+            <h2 className="text-lg font-semibold mb-2">{brand.brand_name}</h2>
+            <p className="text-sm mb-2">Category: {brand.category}</p>
+           
           </div>
         ))}
       </div>
@@ -50,3 +60,6 @@ const TopBrands = () => {
 };
 
 export default TopBrands;
+
+
+
