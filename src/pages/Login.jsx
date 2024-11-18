@@ -4,7 +4,14 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
 
-    const { handleLoginUser,setUser } = useContext(AuthContext);
+    const { handleLoginUser, setUser, sigInWithGoogle } =
+      useContext(AuthContext);
+
+    const handleSigInGoogle = () => {
+        sigInWithGoogle();
+    }
+
+
 
     const handleLogIn = e => {
         e.preventDefault();
@@ -59,10 +66,10 @@ const Login = () => {
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Login</button>
                 </div>
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login with Google</button>
-                </div>
                         </form>
+                <div className="form-control mt-6">
+                  <button onClick={handleSigInGoogle} className="btn btn-primary">Login with Google</button>
+                </div>
                         <p>You no have account? <span className="text-red-500 underline"><Link to='/register'>Register</Link></span></p>
             </div>
           </div>
