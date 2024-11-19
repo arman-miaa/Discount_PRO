@@ -9,6 +9,7 @@ import Register from "../pages/Register";
 import MainLayout from "../layouts/MainLayout";
 import BrandDetails from "../private/BrandDetails";
 import Private from "../private/Private";
+import UpdateProfile from "../private/UpdateProfile";
 
 
 const router = createBrowserRouter(
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       path: "/",
       element: <MainLayout></MainLayout>,
       errorElement: <ErrorPage></ErrorPage>,
+      
       children: [
         {
           path: "/",
@@ -58,6 +60,10 @@ const router = createBrowserRouter(
           },
         },
       ],
+    },
+    {
+      path: 'updateProfile',
+      element: <UpdateProfile></UpdateProfile>,
     },
   ],
 
