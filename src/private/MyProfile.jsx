@@ -3,18 +3,19 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const MyProfile = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     return (
       <div className="container mx-auto py-4">
         {/* covar */}
         <div
-          className="bg-cover bg-center h-64 flex items-center justify-center text-white"
-          style={{
-            backgroundImage: `url('https://via.placeholder.com/800x300?text=Welcome+to+Your+Profile')`,
-          }}
-        >
-          <h1 className="text-4xl font-bold">
-            Welcome, {user?.displayName || "User"}!
+          className="bg-cover bg-blue-300   bg-center h-64 flex items-center justify-center text-white"
+        //   style={{
+        //     backgroundImage: `url('https://via.placeholder.com/800x300?text=Welcome+to+Your+Profile')`,
+        //   }}
+            >
+                
+          <h1 className="text-4xl font-bold text-blue-700">
+            Welcome! {user?.displayName || "User"}!
           </h1>
         </div>
         {/* profile cart */}

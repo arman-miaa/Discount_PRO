@@ -1,32 +1,59 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../firebase/firebase.init";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
+  const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
     const { handleLoginUser, setUser, sigInWithGoogle } =
-      useContext(AuthContext);
+    useContext(AuthContext);
+  const emailRef = useRef();
 
     const handleSigInGoogle = () => {
         sigInWithGoogle();
     }
 
+  const handleForgetPassword = () => {
+    // console.log('give a email', emailRef.current.value);
+    const email = emailRef.current.value;
+    // console.log(email);
 
+    if (!email) {
+      alert('plaes give a email');
+    }
+    else {
+       sendPasswordResetEmail(auth, email)
+      .then(() => {
+       
+          alert('please check your email')
+        
+    })
+   }
+
+}
 
     const handleLogIn = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
         handleLoginUser(email, password)
           .then((result) => {
-            console.log(result.user);
+            // console.log(result.user);
             setUser(result.user);
+            e.target.reset();
+            setError('')
+          
           })
-          .catch((error) => console.log("ERROR", error));
+        // .catch((error) => setError(error.code));
+        .catch((error) => setError('please give currect email and password'));
 }
-
+// console.log(error);
     return (
       <div>
         <div className="hero bg-base-200 min-h-screen">
@@ -40,37 +67,57 @@ const Login = () => {
                   </label>
                   <input
                     type="email"
-                                    placeholder="email"
-                                    name="email"
+                    ref={emailRef}
+                    placeholder="email"
+                    name="email"
                     className="input input-bordered"
                     required
                   />
                 </div>
-                <div className="form-control">
+                <div className="form-control relative">
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
                   <input
-                                    type="password"
-                                    name="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="password"
+                    name="password"
                     className="input input-bordered"
                     required
                   />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="btn btn-xs absolute right-4 top-12"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye></FaEye>}
+                  </button>
                   <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
+                    <button
+                      onClick={handleForgetPassword}
+                      href="#"
+                      className="label-text-alt link link-hover"
+                    >
                       Forgot password?
-                    </a>
+                    </button>
                   </label>
+                  <p className="text-red-800">{error}</p>
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Login</button>
                 </div>
-                        </form>
-                <div className="form-control mt-6">
-                  <button onClick={handleSigInGoogle} className="btn btn-primary">Login with Google</button>
-                </div>
-                        <p>You no have account? <span className="text-red-500 underline"><Link to='/register'>Register</Link></span></p>
+              </form>
+              <div className="form-control mt-6">
+                <button onClick={handleSigInGoogle} className="btn btn-primary">
+                  Login with Google
+                </button>
+              </div>
+              <p>
+                You no have account?{" "}
+                <span className="text-red-500 underline">
+                  <Link to="/register">Register</Link>
+                </span>
+              </p>
             </div>
           </div>
         </div>
