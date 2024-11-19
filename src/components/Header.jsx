@@ -9,7 +9,7 @@ import { AuthContext } from "../provider/AuthProvider";
 const Header = () => {
 
   const { user, handleLogOut } = useContext(AuthContext);
-  // console.log(user);
+  console.log(user);
 
   const handleSinOut = () => {
     handleLogOut();
@@ -95,7 +95,7 @@ const Header = () => {
             {user?.email ? (
               <div className="flex space-x-4">
                 <div className="flex items-center">
-                  <img className="w-16" src={user.photoURL} alt="" />
+                  <img className="w-12 h-12 rounded-full mr-2" src={user.photoURL} alt="" />
                   <h3>{user.email}</h3>
                   <div className="ml-4">
                     <NavLink onClick={handleLogOut} to="/register">
