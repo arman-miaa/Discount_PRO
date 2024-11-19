@@ -9,10 +9,7 @@ const Register = () => {
     useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-  // console.log(showPassword);
-  // const handleShowPassword = (e) => {
-
-  // }
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,7 +19,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    // Password Regex Validation
+    
    let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])[A-Za-z]{6,}$/;
 
     if (!passwordRegex.test(password)) {
@@ -32,7 +29,7 @@ const Register = () => {
       return;
     }
 
-    setError(""); // Clear error if validation passes
+    setError(""); 
 
     // Sign-up user
     handleSignUpUser(email, password)
@@ -43,7 +40,7 @@ const Register = () => {
         // Update user profile
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
-            navigate("/"); // Navigate to the home page on success
+            navigate("/"); 
           })
           .catch((error) => console.log("Profile update error:", error));
       })
