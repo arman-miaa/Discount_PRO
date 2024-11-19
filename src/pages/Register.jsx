@@ -1,14 +1,18 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate();
   const { handleSignUpUser, setUser, updateUserProfile } =
     useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  // console.log(showPassword);
+  // const handleShowPassword = (e) => {
 
-  const [error, setError] = useState(""); // Single error state for all validation issues
-
+  // }
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -99,18 +103,25 @@ const Register = () => {
               </div>
 
               {/* Password Input */}
-              <div className="form-control">
+               <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="password"
                   name="password"
-                  placeholder="Password"
+                  
                   className="input input-bordered"
                   required
                 />
-              </div>
+                <button type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="btn btn-xs absolute right-4 top-12"
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye></FaEye>}
+                </button>
+                </div>
 
               {/* Error Display */}
               {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
