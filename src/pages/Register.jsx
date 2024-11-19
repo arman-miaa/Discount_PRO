@@ -5,11 +5,13 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { handleSignUpUser, setUser, updateUserProfile } =
+  const { handleSignUpUser, setUser,user, updateUserProfile, sigInWithGoogle } =
     useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
- 
+ const handleSigInGoogle = () => {
+   sigInWithGoogle();
+ };
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -48,6 +50,8 @@ const Register = () => {
         console.log("Sign-up error:", error);
         setError("Sign-up failed. Please try again.");
       });
+    
+     
   };
 
   return (
@@ -100,7 +104,7 @@ const Register = () => {
               </div>
 
               {/* Password Input */}
-               <div className="form-control relative">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
@@ -108,17 +112,17 @@ const Register = () => {
                   type={showPassword ? "text" : "password"}
                   placeholder="password"
                   name="password"
-                  
                   className="input input-bordered"
                   required
                 />
-                <button type="button"
+                <button
+                  type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="btn btn-xs absolute right-4 top-12"
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye></FaEye>}
                 </button>
-                </div>
+              </div>
 
               {/* Error Display */}
               {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
@@ -130,7 +134,7 @@ const Register = () => {
 
               {/* Register with Google */}
               <div className="form-control mt-6">
-                <button className="btn btn-primary">
+                <button onClick={handleSigInGoogle} className="btn btn-primary">
                   Register with Google
                 </button>
               </div>

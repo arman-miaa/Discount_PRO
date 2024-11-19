@@ -43,7 +43,7 @@ const Header = () => {
     );
     
     return (
-      <div>
+      <div className="bg-blue-500 border-2">
         <div className="navbar bg-base-100">
           <div className="navbar-start">
             <div className="dropdown">
@@ -79,10 +79,11 @@ const Header = () => {
 
           <div className="navbar-center hidden lg:flex">
             <div className="">
-              { user?.displayName ? (
+              {user?.displayName ? (
                 <div className="">
                   {" "}
-                  welcome! <span className="text-orange-800">{user.displayName}</span>
+                  welcome!{" "}
+                  <span className="text-orange-800">{user.displayName}</span>
                 </div>
               ) : (
                 "ami tom "
@@ -90,13 +91,18 @@ const Header = () => {
             </div>
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
-          <div className="navbar-end">
+          <div className="navbar-end ">
             {user?.email ? (
               <div className="flex space-x-4">
-                <NavLink to="/login">{user.email}</NavLink>
-                <NavLink onClick={handleLogOut} to="/register">
-                  LogOut
-                </NavLink>
+                <div className="flex items-center">
+                  <img className="w-16" src={user.photoURL} alt="" />
+                  <h3>{user.email}</h3>
+                  <div className="ml-4">
+                    <NavLink onClick={handleLogOut} to="/register">
+                      LogOut
+                    </NavLink>
+                  </div>
+                </div>
               </div>
             ) : (
               <div className="flex space-x-4">
