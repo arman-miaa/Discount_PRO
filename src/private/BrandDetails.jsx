@@ -38,7 +38,7 @@ const BrandDetails = () => {
         <h2 className="text-2xl font-bold text-center mt-8">
           Available Coupons
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           {brand.coupons.map((coupon, index) => (
             <div
               key={index}

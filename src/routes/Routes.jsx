@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import MainLayout from "../layouts/MainLayout";
 import BrandDetails from "../private/BrandDetails";
+import Private from "../private/Private";
 
 
 const router = createBrowserRouter(
@@ -29,7 +30,11 @@ const router = createBrowserRouter(
         },
         {
           path: "myProfile",
-          element: <MyProfile></MyProfile>,
+          element: (
+            <Private>
+              <MyProfile></MyProfile>
+            </Private>
+          ),
         },
         {
           path: "aboutDev",
@@ -49,7 +54,7 @@ const router = createBrowserRouter(
           loader: async ({ params }) => {
             const response = await fetch("/collection.json");
             const data = await response.json();
-            return data.find((brand) => brand._id === parseInt(params.id)); 
+            return data.find((brand) => brand._id === parseInt(params.id));
           },
         },
       ],
