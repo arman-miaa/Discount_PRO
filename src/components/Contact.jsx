@@ -7,8 +7,8 @@ const Contact = () => {
     <div className=" bg-base-200">
       <div className="mb-16 w-full  bg-base-200  "></div>
       <div className="text-center">
-        <h1 className="text-3xl font-semibold pt-12">Stay Connected and Share Your Feedback</h1>
-        <p className="md:w-1/2 mx-auto mt-4">
+        <h1 className="text-3xl font-semibold text-center pt-12">Stay Connected and Share Your Feedback</h1>
+        <p className="md:w-1/2 mx-auto mt-4 px-4 md:px-0">
           Connect with us on social media to stay updated on the latest gadgets
           and tech news. We welcome your feedback and are here to assist you.
           Use the contact form to share your thoughts, suggestions, or
@@ -28,11 +28,11 @@ const Contact = () => {
               Follow us across our social media channels and join our community
               of tech enthusiasts.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap space-y-4  space-x-4 justify-center  items-center mb-16 lg:mb-0">
               <a
                 href="https://facebook.com"
                 target="_blank"
-                className="flex items-center justify-center w-24 rounded-lg text-xl lg:text-2xl  h-[44px]  bg-blue-600 text-white hover:bg-blue-700"
+                className="flex items-center mt-[14px] justify-center w-24 rounded-lg text-xl lg:text-2xl  h-[44px]  bg-blue-600 text-white hover:bg-blue-700"
               >
                 <i className="fab fa-facebook-f"></i>
               </a>

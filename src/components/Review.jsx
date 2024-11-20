@@ -29,7 +29,7 @@ const reviews = [
 
 const Review = () => {
   return (
-    <div className="bg-base-200 py-12">
+    <div className="bg-base-200 py-12 pb-20 mt-12">
       {/* Header Section */}
       <div className="text-center md:w-1/2 mx-auto mb-8">
         <h1 className="text-3xl font-semibold mb-4">Users Reviews</h1>

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="bg-base-200 mt-12 ">
-      <footer className=" container mx-auto footer text-base-content p-10">
+      <footer className=" container mx-auto  footer text-base-content p-10">
         {/* Left Section */}
-        <nav>
+        <nav className=" mx-auto lg:mx-0">
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>
@@ -15,7 +15,7 @@ const Footer = () => {
         </nav>
 
         {/* Center Section */}
-        <nav>
+        <nav className=" mx-auto lg:mx-0">
           <h6 className="footer-title">Company</h6>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
@@ -24,7 +24,7 @@ const Footer = () => {
         </nav>
 
         {/* Right Section: Social Icons and Profile Link */}
-        <div>
+        <div className=" mx-auto lg:mx-0">
           <h6 className="footer-title">Follow Us</h6>
           <div className="flex space-x-4 my-2">
             <Link

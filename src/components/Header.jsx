@@ -42,8 +42,8 @@ const Header = () => {
   );
 
   return (
-    <div className="bg-blue-500 border-2">
-      <div className="navbar bg-base-100">
+    <div className="bg-base-200 ">
+      <div className="navbar  container mx-auto bg-blue-300">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -78,7 +78,7 @@ const Header = () => {
 
         {/* Welcome Message */}
         {location.pathname === "/" && user?.displayName && (
-          <div className="absolute top-[100px] left-[50%] -translate-x-[50%]">
+          <div className="absolute top-[90px] left-[50%] -translate-x-[50%]">
             <div>
               Welcome!{" "}
               <span className="text-orange-800">{user.displayName}</span>
@@ -96,8 +96,8 @@ const Header = () => {
                   alt=""
                 />
                 <h3 className="hidden md:flex">{user.email}</h3>
-                <div className="ml-4">
-                  <NavLink onClick={handleSignOut} to="/register">
+                <div className="ml-4  px-4 pb-[6px] pt-[2px] bg-red-500 text-white rounded-xl">
+                  <NavLink  onClick={handleSignOut} to="/register">
                     LogOut
                   </NavLink>
                 </div>

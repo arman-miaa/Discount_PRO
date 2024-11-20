@@ -6,7 +6,7 @@ import Home from "../pages/Home";
 const MainLayout = () => {
     return (
       <div>
-        <div className="container mx-auto py-6">
+        <div className="">
           <Header></Header>
         </div>
 

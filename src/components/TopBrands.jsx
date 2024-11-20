@@ -35,12 +35,15 @@ const TopBrands = () => {
 
 
   return (
-    <div>
-      <h1 className="flex justify-center mt-4 text-4xl font-semibold bg-blue-300 p-4">
-        Top Brands
-      </h1>
+    <div className=" bg-base-200 p-12 pb-20 mt-16">
+      <div className="text-center md:w-1/2 mx-auto mb-8">
+        <h1 className="text-3xl font-semibold">Top Brands</h1>
+        <p className="text-gray-600 pt-2">
+          Discover the most popular and trusted brands in various categories.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-3 gap-8 mt-8">
+      <div className="grid  md:grid-cols-3 gap-8 mt-8">
         {brands.map((brand) => (
           <div
             className="border rounded-lg shadow-md p-4 flex flex-col items-center"
@@ -50,11 +53,10 @@ const TopBrands = () => {
             <img
               src={brand.brand_logo}
               alt={brand.brand_name}
-              className="w-24 h-24 object-cover mb-4"
+              className="w-24 h-24 mt-4 object-cover rounded-full border-4 mb-4"
             />
             <h2 className="text-lg font-semibold mb-2">{brand.brand_name}</h2>
-            <p className="text-sm mb-2">Category: {brand.category}</p>
-           
+            <p className="text-sm mb-2 text-center">Category: {brand.category}</p>
           </div>
         ))}
       </div>
