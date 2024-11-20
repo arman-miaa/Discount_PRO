@@ -1,14 +1,16 @@
 import { useContext, useRef, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+// import toast from "react-hot-toast";
+
 
 const Login = () => {
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
+  const navigate = useNavigate();
     const { handleLoginUser, setUser, sigInWithGoogle } =
     useContext(AuthContext);
   const emailRef = useRef();
@@ -17,7 +19,10 @@ const Login = () => {
       sigInWithGoogle()
         .then((result) => {
           setUser(result.user)
-          Navigate('/')
+          
+          navigate("/");
+          // toast.success('Hi How are You');
+          
       })
     }
 

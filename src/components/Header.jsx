@@ -3,17 +3,20 @@ import { IoIosHome } from "react-icons/io";
 import { MdBrandingWatermark } from "react-icons/md";
 import { RiProfileFill } from "react-icons/ri";
 import { FcAbout } from "react-icons/fc";
-import { useContext } from "react";
+import { useContext,  useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
 
   const { user, handleLogOut } = useContext(AuthContext);
+  // const [show, setShow] = useState(true);
   // console.log(user);
 
   const handleSinOut = () => {
     handleLogOut();
   }
+
+  
 
     const links = (
       <>
@@ -78,25 +81,31 @@ const Header = () => {
           </div>
 
           <div className="navbar-center hidden lg:flex">
-            <div className="">
-              {user?.displayName ? (
-                <div className="">
-                  {" "}
-                  welcome!{" "}
-                  <span className="text-orange-800">{user?.displayName}</span>
-                </div>
-              ) : (
-                ""
-              )}
-            </div>
+            
+              <div className="absolute  top-[70px] left-[50%]">
+                {user?.displayName ? (
+                  <div className="">
+                    {" "}
+                    welcome!{" "}
+                    <span className="text-orange-800">{user?.displayName}</span>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+            
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
           <div className="navbar-end ">
             {user?.email ? (
               <div className="flex space-x-4">
                 <div className="flex items-center">
-                  <img className="w-12 h-12 rounded-full mr-2" src={user.photoURL} alt="" />
-                  <h3>{user.email}</h3>
+                  <img
+                    className="w-12 h-12 rounded-full mr-2"
+                    src={user.photoURL}
+                    alt=""
+                  />
+                  <h3 className="hidden md:flex">{user.email}</h3>
                   <div className="ml-4">
                     <NavLink onClick={handleLogOut} to="/register">
                       LogOut
