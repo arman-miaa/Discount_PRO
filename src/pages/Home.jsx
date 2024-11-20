@@ -6,6 +6,7 @@ import BrandsOnSell from "../components/BrandsOnSell";
 import BrandsSlide from "../components/BrandsSlide";
 import TopBrands from "../components/TopBrands";
 import Contact from "../components/Contact";
+import Review from "../components/Review";
 
 const Home = () => {
   useEffect(() => {
@@ -29,10 +30,14 @@ const Home = () => {
       <div data-aos="zoom-in">
         <BrandsOnSell />
           </div>
-          {/* Contact */}
+          {/* review */}
           <div>
-              <Contact></Contact>
+              <Review></Review>
           </div>
+      {/* Contact */}
+      <div data-aos="zoom-in">
+        <Contact></Contact>
+      </div>
     </div>
   );
 };
