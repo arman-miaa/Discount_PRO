@@ -9,7 +9,7 @@ import { AuthContext } from "../provider/AuthProvider";
 const Header = () => {
 
   const { user, handleLogOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleSinOut = () => {
     handleLogOut();
@@ -86,7 +86,7 @@ const Header = () => {
                   <span className="text-orange-800">{user?.displayName}</span>
                 </div>
               ) : (
-                "ami tom "
+                ""
               )}
             </div>
             <ul className="menu menu-horizontal px-1">{links}</ul>

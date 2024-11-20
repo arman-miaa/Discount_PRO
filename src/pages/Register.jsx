@@ -9,9 +9,18 @@ const Register = () => {
     useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
- const handleSigInGoogle = () => {
-   sigInWithGoogle();
-  };
+const handleSigInGoogle = () => {
+  sigInWithGoogle()
+    .then((result) => {
+   setUser(result.user)
+      navigate("/");
+    })
+    .catch((error) => {
+      console.error("Google Sign-In Error:", error);
+      setError("Google Sign-In failed. Please try again.");
+    });
+};
+
   
   const handleSubmit = (e) => {
     e.preventDefault();

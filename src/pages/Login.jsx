@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
@@ -14,7 +14,11 @@ const Login = () => {
   const emailRef = useRef();
 
     const handleSigInGoogle = () => {
-        sigInWithGoogle();
+      sigInWithGoogle()
+        .then((result) => {
+          setUser(result.user)
+          Navigate('/')
+      })
     }
 
   const handleForgetPassword = () => {
