@@ -83,7 +83,7 @@ const Header = () => {
                 <div className="">
                   {" "}
                   welcome!{" "}
-                  <span className="text-orange-800">{user.displayName}</span>
+                  <span className="text-orange-800">{user?.displayName}</span>
                 </div>
               ) : (
                 "ami tom "

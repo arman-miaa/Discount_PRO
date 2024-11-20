@@ -5,13 +5,14 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { handleSignUpUser, setUser,user, updateUserProfile, sigInWithGoogle } =
+  const { handleSignUpUser, setUser, updateUserProfile, sigInWithGoogle } =
     useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
  const handleSigInGoogle = () => {
    sigInWithGoogle();
- };
+  };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -21,28 +22,30 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    
-   let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])[A-Za-z]{6,}$/;
+    let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])[A-Za-z]{6,}$/;
 
     if (!passwordRegex.test(password)) {
       setError(
-        "Password must be at least 6 characters long, include at least one uppercase letter, one lowercase letter,"
+        "Password must be at least 6 characters long, include at least one uppercase letter, and one lowercase letter."
       );
       return;
     }
 
-    setError(""); 
+    setError("");
 
     // Sign-up user
     handleSignUpUser(email, password)
       .then((result) => {
-        setUser(result.user);
-        navigate("/");
+        const newUser = result.user;
 
-        // Update user profile
+      
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
-            navigate("/"); 
+        
+            setUser({ ...newUser, displayName: name, photoURL: photo });
+
+            
+            navigate("/");
           })
           .catch((error) => console.log("Profile update error:", error));
       })
@@ -50,9 +53,8 @@ const Register = () => {
         console.log("Sign-up error:", error);
         setError("Sign-up failed. Please try again.");
       });
-    
-     
   };
+
 
   return (
     <div>
