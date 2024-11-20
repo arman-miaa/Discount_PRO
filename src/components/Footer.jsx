@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-base-200 ">
+    <div className="bg-base-200 mt-12 ">
       <footer className=" container mx-auto footer text-base-content p-10">
         {/* Left Section */}
         <nav>

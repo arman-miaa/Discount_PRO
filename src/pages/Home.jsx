@@ -29,11 +29,11 @@ const Home = () => {
       </div>
       <div data-aos="zoom-in">
         <BrandsOnSell />
-          </div>
-          {/* review */}
-          <div>
-              <Review></Review>
-          </div>
+      </div>
+      {/* review */}
+      <div data-aos="zoom-in">
+        <Review></Review>
+      </div>
       {/* Contact */}
       <div data-aos="zoom-in">
         <Contact></Contact>
