@@ -126,5 +126,43 @@
     "shop_Link": "https://www.pickaboo.com",
     "category": "Electronics",
     "isSaleOn": false
+  },
+  {
+    "_id": 7,
+    "brand_name": "AjkerDeal",
+    "rating": 4.1,
+    "description": "Best daily deals on various products in Bangladesh.",
+    "brand_logo": "https://i.ibb.co.com/RDsdhPH/unnamed.png",
+    "coupons": [
+      {
+        "coupon_code": "DEAL20",
+        "description": "20% off on selected items",
+        "expiry_date": "2024-11-30",
+        "condition": "Minimum purchase BDT 1000",
+        "coupon_type": "percentage"
+      }
+    ],
+    "shop_Link": "https://www.ajkerdeal.com",
+    "category": "E-commerce",
+    "isSaleOn": true
+  },
+  {
+    "_id": 8,
+    "brand_name": "Chorki",
+    "rating": 4.8,
+    "description": "Exclusive Bangladeshi streaming service for movies and shows.",
+    "brand_logo": "https://i.ibb.co.com/pzVcCXH/download.png",
+    "coupons": [
+      {
+        "coupon_code": "STREAM50",
+        "description": "50% off on first month subscription",
+        "expiry_date": "2024-12-31",
+        "condition": "New users only",
+        "coupon_type": "service"
+      }
+    ],
+    "shop_Link": "https://www.chorki.com",
+    "category": "Streaming",
+    "isSaleOn": true
   }
 ]

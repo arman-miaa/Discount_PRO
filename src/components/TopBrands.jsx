@@ -21,12 +21,15 @@ const TopBrands = () => {
       isSaleOn: true,
     },
     {
-      _id: 3,
-      brand_name: "Bikroy",
-      brand_logo: "https://i.ibb.co.com/1zV6tf9/unnamed.webp",
-      shop_Link: "https://www.bikroy.com",
-      category: "Marketplace",
-      isSaleOn: false,
+      _id: 4,
+      brand_name: "Rokomary",
+      rating: 4.7,
+      description: "Get groceries delivered to your home.",
+      brand_logo: "https://i.ibb.co.com/vdNLHjm/1583844005259.jpg",
+  
+      shop_Link: "https://www.chaldal.com",
+      category: "Groceries",
+      isSaleOn: true,
     },
   ];
 
