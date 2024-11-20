@@ -5,6 +5,7 @@ import Banner from "../components/Banner";
 import BrandsOnSell from "../components/BrandsOnSell";
 import BrandsSlide from "../components/BrandsSlide";
 import TopBrands from "../components/TopBrands";
+import Contact from "../components/Contact";
 
 const Home = () => {
   useEffect(() => {
@@ -27,7 +28,11 @@ const Home = () => {
       </div>
       <div data-aos="zoom-in">
         <BrandsOnSell />
-      </div>
+          </div>
+          {/* Contact */}
+          <div>
+              <Contact></Contact>
+          </div>
     </div>
   );
 };
