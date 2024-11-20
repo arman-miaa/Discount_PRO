@@ -52,4 +52,6 @@
 ---
 
 ## Live Link 🌐  
-- Netlify Live Link: 👉 [https://ph-a9-authentication-project.netlify.app/](https://ph-a9-authentication-project.netlify.app/)
+- Firebase Live Link: 👉 [https://ph-assignment-9-799f5.web.app/](https://ph-assignment-9-799f5.web.app/)  
+
+- Netlify Live Link: 👉 [https://ph-a9-authentication-project.netlify.app/](https://ph-a9-authentication-project.netlify.app/)  
