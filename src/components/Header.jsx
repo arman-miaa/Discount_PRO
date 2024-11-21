@@ -97,7 +97,7 @@ const Header = () => {
                 />
                 <h3 className="hidden md:flex">{user.email}</h3>
                 <div className="ml-4  px-4 pb-[6px] pt-[2px] bg-red-500 text-white rounded-xl">
-                  <NavLink onClick={handleSignOut} to="/register">
+                  <NavLink onClick={handleSignOut} to="/login">
                     LogOut
                   </NavLink>
                 </div>

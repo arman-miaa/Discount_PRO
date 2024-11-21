@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { handleLoginUser, setUser, sigInWithGoogle } = useContext(AuthContext);
   const emailRef = useRef();
 
@@ -17,7 +18,8 @@ const Login = () => {
     sigInWithGoogle()
       .then((result) => {
         setUser(result.user);
-        navigate("/");
+        const from = location.state?.from?.pathname || "/";
+        navigate(from);
         toast.success("Logged in successfully with Google!", {
           position: "top-center",
         });
@@ -49,7 +51,8 @@ const Login = () => {
         toast.success("Logged in successfully!", { position: "top-center" });
         form.reset();
         setError("");
-        navigate("/");
+        const from = location.state?.from?.pathname || "/"; 
+        navigate(from);
       })
       .catch(() => {
         setError("Please provide a valid email and password.");
