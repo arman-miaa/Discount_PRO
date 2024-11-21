@@ -24,7 +24,7 @@ const BrandsOnSell = () => {
         {brands.map((brand) => (
           <div
             key={brand._id}
-            className="border rounded-lg shadow-md p-4 flex flex-col items-center"
+            className="border rounded-lg shadow-md mx-4 md:mx-0 p-4 flex flex-col items-center"
           >
             <img
               src={brand.brand_logo}

@@ -17,11 +17,11 @@ const BrandsSlide = () => {
   };
 
   return (
-    <div className=" bg-base-200 mt-16 py-12">
+    <div className=" bg-base-200 mt-16 py-12 mx-4 md:mx-0">
       <h2 className="text-3xl font-semibold text-center mb-4">
         Brand Highlights
       </h2>
-      <p className="text-center text-gray-600 mb-6 md:w-1/2 mx-auto">
+      <p className="text-center text-gray-600 px-2 mb-6 md:w-1/2 mx-auto">
         Explore all brand logos in a smooth scrolling marquee. Hover to pause
         the motion, and click on a logo to view detailed brand information.
       </p>

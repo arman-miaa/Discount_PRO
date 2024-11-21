@@ -44,7 +44,7 @@ const Header = () => {
   return (
     <div className="bg-base-200 ">
       <div className="navbar  container mx-auto ">
-        <div className="navbar-start">
+        <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -64,12 +64,12 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2  shadow"
             >
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Discount PRO</a>
+          <a className="btn btn-ghost text-xl -ml-6 md:-ml-0">Discount PRO</a>
         </div>
 
         <div className="navbar-center hidden lg:flex">
@@ -91,7 +91,7 @@ const Header = () => {
             <div className="flex space-x-4">
               <div className="flex items-center">
                 <img
-                  className="w-12 h-12 rounded-full mr-2"
+                  className="w-12 h-12 rounded-full md:mr-2"
                   src={user.photoURL}
                   alt=""
                 />

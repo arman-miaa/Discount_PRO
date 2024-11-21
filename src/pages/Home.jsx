@@ -21,10 +21,10 @@ const Home = () => {
       <div data-aos="fade-up">
         <Banner />
       </div>
-      <div data-aos="fade-right">
+      <div data-aos="fade-down">
         <TopBrands />
       </div>
-      <div data-aos="fade-left">
+      <div data-aos="fade-up">
         <BrandsSlide />
       </div>
       <div data-aos="zoom-in">

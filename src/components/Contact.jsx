@@ -16,7 +16,7 @@ const Contact = () => {
         </p>
       </div>
       {/* form */}
-      <div className="hero mt-12 pb-12 px-4 rounded-xl">
+      <div className="hero mt-12 pb-12 rounded-xl">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center ">
             <i className="fa-regular fa-user text-8xl text-[#9538E2]"></i>
