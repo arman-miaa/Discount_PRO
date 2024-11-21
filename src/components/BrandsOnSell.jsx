@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const BrandsOnSell = () => {
   const [brands, setBrands] = useState([]);
-
+  const navigate = useNavigate();
+  const handleCartClick = (brandId) => {
+  //  console.log('cart clicked');
+   navigate(`/brandDetails/${brandId}`);
+ };
   useEffect(() => {
     fetch("/collection.json") 
       .then((res) => res.json())
@@ -22,9 +27,9 @@ const BrandsOnSell = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {brands.map((brand) => (
-          <div
+          <div onClick={()=>handleCartClick(brand._id)}
             key={brand._id}
-            className="border rounded-lg shadow-md mx-4 md:mx-0 p-4 flex flex-col items-center"
+            className="border rounded-lg cursor-pointer shadow-md mx-4 md:mx-0 p-4 flex flex-col items-center"
           >
             <img
               src={brand.brand_logo}

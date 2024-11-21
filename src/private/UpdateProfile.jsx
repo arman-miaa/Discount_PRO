@@ -33,7 +33,7 @@ const UpdateProfile = () => {
     return (
       <div className="container mx-auto py-4">
         <Header></Header>
-        Update Profile...
+       
         {/* update profile */}
         <div className="hero bg-base-200 min-h-screen">
           <div className="hero-content flex-col">

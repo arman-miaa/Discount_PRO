@@ -28,7 +28,7 @@ const BrandsSlide = () => {
       <div className="border-2 flex items-center">
         {/* <button className="btn">All Categories</button> */}
         <Marquee pauseOnHover={true} speed={100}>
-          <div className="flex gap-16">
+          <div className="flex gap-6 mr-4 md:mr-0 md:gap-16">
             {images.map((image) => (
               <div
                 className="cursor-pointer bg-blue-300 p-2 rounded shadow-md"

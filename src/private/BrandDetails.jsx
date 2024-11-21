@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const BrandDetails = () => {
     const brand = useLoaderData();
-    console.log(brand);
+    // console.log(brand);
     const naviget = useNavigate();
     const { user } = useContext(AuthContext)
     
@@ -26,16 +26,16 @@ const BrandDetails = () => {
         <div className="container mx-auto py-8">
             <Toaster></Toaster>
         {/* brand name , Logo and rating */}
-        <div className="flex flex-col justify-center items-center bg-blue-200 py-4">
-          <img className="w-1/6" src={brand.brand_logo} alt="" />
-          <h2>{brand.brand_name}</h2>
-          <p>
+        <div className="flex flex-col border-2 py-8 justify-center items-center bg-base-200 ">
+          <img className="w-36  object-cover border-2 rounded-xl" src={brand.brand_logo} alt="" />
+          <h2 className="text-2xl font-semibold mt-4">{brand.brand_name}</h2>
+          <p className="text-2xl mt-4">
             <span>⭐</span>
             {brand.rating}
           </p>
         </div>
         {/* cards */}
-        <h2 className="text-2xl font-bold text-center mt-8">
+        <h2 className="text-2xl font-bold text-center mt-12">
           Available Coupons
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">

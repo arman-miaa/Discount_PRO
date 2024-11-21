@@ -10,6 +10,7 @@ import MainLayout from "../layouts/MainLayout";
 import BrandDetails from "../private/BrandDetails";
 import Private from "../private/Private";
 import UpdateProfile from "../private/UpdateProfile";
+import ResetPassword from "../pages/ResetPassword";
 
 
 const router = createBrowserRouter(
@@ -64,6 +65,10 @@ const router = createBrowserRouter(
     {
       path: 'updateProfile',
       element: <UpdateProfile></UpdateProfile>,
+    },
+    {
+      path: 'resetPassword',
+      element: <ResetPassword></ResetPassword>,
     },
   ],
 

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -9,19 +10,24 @@ const Register = () => {
     useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-const handleSigInGoogle = () => {
-  sigInWithGoogle()
-    .then((result) => {
-   setUser(result.user)
-      navigate("/");
-    })
-    .catch((error) => {
-      console.error("Google Sign-In Error:", error);
-      setError("Google Sign-In failed. Please try again.");
-    });
-};
 
-  
+  const handleSigInGoogle = () => {
+    sigInWithGoogle()
+      .then((result) => {
+        setUser(result.user);
+        toast.success(`Successfully signed in with Google!`, {
+          position: "top-center",
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Google Sign-In Error:", error);
+        toast.error(`Google Sign-In failed. Please try again.`, {
+          position: "top-center",
+        });
+      });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -37,6 +43,11 @@ const handleSigInGoogle = () => {
       setError(
         "Password must be at least 6 characters long, include at least one uppercase letter, and one lowercase letter."
       );
+      toast.error(
+        `Password must be at least 6 characters long, include one uppercase letter, and one lowercase letter.`, {
+          position:"top-center",
+        }
+      );
       return;
     }
 
@@ -47,23 +58,42 @@ const handleSigInGoogle = () => {
       .then((result) => {
         const newUser = result.user;
 
-      
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
-        
             setUser({ ...newUser, displayName: name, photoURL: photo });
-
-            
+            toast.success(`Account created successfully!`, {
+              position: "top-center",
+            });
             navigate("/");
           })
-          .catch((error) => console.log("Profile update error:", error));
+          .catch((error) => {
+            // console.log("Profile update error:", error);
+            toast.error(`Failed to update profile. Please try again.`, {
+              position: "top-center",
+            });
+          });
       })
       .catch((error) => {
-        console.log("Sign-up error:", error);
-        setError("Sign-up failed. Please try again.");
+        // console.log("Sign-up error:", error);
+        
+        if (error.code === "auth/email-already-in-use") {
+          setError(
+            "This email is already in use. Please try another email address."
+          );
+          toast.error(
+            `This email is already in use. Please try another email address.`,
+            {
+              position: "top-center",
+            }
+          );
+
+        } else {
+        
+          setError("Sign-up failed. Please try again.");
+          toast.error("Sign-up failed. Please try again.");
+        }
       });
   };
-
 
   return (
     <div>

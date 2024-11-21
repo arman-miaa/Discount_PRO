@@ -1,8 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 // import Marquee from "react-fast-marquee";
 
 const TopBrands = () => {
+  const navigate = useNavigate();
+  const handleCart = (brandId) => {
+    navigate(`/brandDetails/${brandId}`);
+  }
   const brands = [
     {
       _id: 1,
@@ -45,8 +50,8 @@ const TopBrands = () => {
 
       <div className="grid  md:grid-cols-3 gap-8 mt-8">
         {brands.map((brand) => (
-          <div
-            className="border rounded-lg shadow-md p-4 flex flex-col items-center"
+          <div onClick={()=>handleCart(brand._id)}
+            className="border cursor-pointer rounded-lg shadow-md p-4 flex flex-col items-center"
             key={brand._id}
             brand={brand}
           >
