@@ -42,7 +42,7 @@ const Header = () => {
   );
 
   return (
-    <div className="bg-base-200 ">
+    <div className="bg-base-200  w-full sticky z-50 top-0 left-0 ">
       <div className="navbar  container mx-auto ">
         <div className="navbar-start ">
           <div className="dropdown">
@@ -69,11 +69,13 @@ const Header = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl -ml-6 md:-ml-0">Discount PRO</a>
+          <a className="btn btn-ghost text-xl -ml-6 md:-ml-0 bg-gradient-to-br from-blue-800 via-purple-800 to-pink-800 text-transparent bg-clip-text">
+            Discount <span>PRO</span>
+          </a>
         </div>
 
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+          <ul className="menu menu-horizontal px-1 md:text-xl ">{links}</ul>
         </div>
 
         {/* Welcome Message */}
@@ -90,12 +92,14 @@ const Header = () => {
           {user?.email ? (
             <div className="flex space-x-4">
               <div className="flex items-center">
-                <img
-                  className="w-12 h-12 rounded-full md:mr-2"
-                  src={user.photoURL}
-                  alt=""
-                />
-                <h3 className="hidden md:flex">{user.email}</h3>
+                <div className="flex flex-col justify-center items-center">
+                  <img
+                    className="w-12 h-12 rounded-full md:mr-2"
+                    src={user.photoURL}
+                    alt=""
+                  />
+                  <h3 className="hidden md:flex">{user.email}</h3>
+                </div>
                 <div className="ml-4  px-4 pb-[6px] pt-[2px] bg-red-500 text-white rounded-xl">
                   <NavLink onClick={handleSignOut} to="/login">
                     LogOut

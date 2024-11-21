@@ -5,83 +5,82 @@ import Header from "../components/Header";
 import { Helmet } from "react-helmet";
 
 const UpdateProfile = () => {
-    const { user,updateUserProfile } = useContext(AuthContext);
-    const navigate = useNavigate();
+  const { user, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('clicked btn');
-        const form = e.target;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
 
-        const name = form.name.value;
-        const photo = form.photo.value;
-     
-        console.log(name,photo);
-        // Update user profile
-         updateUserProfile({ displayName: name, photoURL: photo })
-           .then(() => {
-             navigate("/myProfile"); 
-           })
-           .catch((error) => console.log("Profile update error:", error));
-       
+    // Update user profile
+    updateUserProfile({ displayName: name, photoURL: photo })
+      .then(() => {
+        navigate("/myProfile");
+      })
+      .catch((error) => console.log("Profile update error:", error));
+  };
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
     }
+  }, [user, navigate]);
 
-    useEffect(() => {
-        if (!user) {
-          navigate("/login");
-        }
-   },[])
-    return (
-      <div className="container mx-auto py-4">
-        <Helmet>
-          <title> Update Profile Page</title>
-        </Helmet>
-        <Header></Header>
+  return (
+    <div className="min-h-screen  bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+      <Helmet>
+        <title>Update Profile Page</title>
+      </Helmet>
+      <Header />
 
-        {/* update profile */}
-        <div className="hero bg-base-200 min-h-screen">
-          <div className="hero-content flex-col">
-            <h1 className="text-2xl font-semibold">Sign-Up Page</h1>
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-              <form onSubmit={handleSubmit} className="card-body">
-                {/* Name Input */}
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Name</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    className="input input-bordered"
-                    required
-                  />
-                </div>
+      <div className="container mx-auto py-8 px-4 md:px-12">
+        <div className="max-w-lg md:mt-16 mx-auto bg-white shadow-lg rounded-lg p-8">
+          <h2 className="text-3xl font-semibold text-center text-blue-600 mb-6">
+            Update Your Profile
+          </h2>
 
-                {/* Photo URL Input */}
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Photo URL</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="photo"
-                    placeholder="Photo URL"
-                    className="input input-bordered"
-                    required
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">Save change</button>
-                </div>
-              </form>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="form-control">
+              <label className="label text-lg font-semibold text-gray-700">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                className="input input-bordered w-full p-3 border-gray-300 focus:ring-2 focus:ring-blue-300 rounded-md"
+                required
+              />
             </div>
-          </div>
+
+            <div className="form-control">
+              <label className="label text-lg font-semibold text-gray-700">
+                Photo URL
+              </label>
+              <input
+                type="text"
+                name="photo"
+                placeholder="Enter photo URL"
+                className="input input-bordered w-full p-3 border-gray-300 focus:ring-2 focus:ring-blue-300 rounded-md"
+                required
+              />
+            </div>
+
+            <div className="form-control mt-6">
+              <button
+                type="submit"
+                className="btn btn-primary w-full py-3  font-semibold text-lg text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out"
+              >
+                Save Changes
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default UpdateProfile;
