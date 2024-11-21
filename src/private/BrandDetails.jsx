@@ -12,7 +12,9 @@ const BrandDetails = () => {
     const { user } = useContext(AuthContext)
     
      const handleCopy = () => {
-       toast.success("Coupon code copied successfully!");
+       toast.success(`Coupon code copied successfully!`, {
+         position:"top-center",
+       });
      };
     
 
@@ -24,7 +26,7 @@ const BrandDetails = () => {
    
     return (
         <div className="container mx-auto py-8">
-            <Toaster></Toaster>
+            {/* <Toaster></Toaster> */}
         {/* brand name , Logo and rating */}
         <div className="flex flex-col border-2 py-8 justify-center items-center bg-base-200 ">
           <img className="w-36  object-cover border-2 rounded-xl" src={brand.brand_logo} alt="" />
