@@ -5,6 +5,7 @@ import { RiProfileFill } from "react-icons/ri";
 import { FcAbout } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Header = () => {
   const { user, handleLogOut } = useContext(AuthContext);
@@ -12,6 +13,9 @@ const Header = () => {
 
   const handleSignOut = () => {
     handleLogOut();
+     toast.success("Log out successfully ", {
+       position: "top-center",
+     });
   };
 
   const links = (
@@ -80,7 +84,7 @@ const Header = () => {
 
         {/* Welcome Message */}
         {location.pathname === "/" && user?.displayName && (
-          <div className="absolute top-[90px] left-[50%] -translate-x-[50%]">
+          <div className="absolute top-[95px] left-[50%] -translate-x-[50%]">
             <div>
               Welcome!{" "}
               <span className="text-orange-800">{user.displayName}</span>
@@ -112,7 +116,7 @@ const Header = () => {
               <NavLink
                 to="/login"
                 className={({ isActive }) =>
-                  `border-2 font-bold px-6 py-2 rounded-full transition-all duration-300 ${
+                  `border-2 font-bold px-4 md:px-6 py-2 rounded-full transition-all duration-300 ${
                     isActive
                       ? "bg-blue-500 text-white"
                       : "bg-white text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white hover:shadow-md"
@@ -124,7 +128,7 @@ const Header = () => {
               <NavLink
                 to="/register"
                 className={({ isActive }) =>
-                  `border-2 font-bold px-6 py-2 rounded-full transition-all duration-300 ${
+                  `border-2 font-bold px-[10px] md:px-6 py-2 rounded-full transition-all duration-300 ${
                     isActive
                       ? "bg-blue-500 text-white"
                       : "bg-white text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white hover:shadow-md"
