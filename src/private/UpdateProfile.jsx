@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import { Helmet } from "react-helmet";
 
 const UpdateProfile = () => {
     const { user,updateUserProfile } = useContext(AuthContext);
@@ -32,8 +33,11 @@ const UpdateProfile = () => {
    },[])
     return (
       <div className="container mx-auto py-4">
+        <Helmet>
+          <title> Update Profile Page</title>
+        </Helmet>
         <Header></Header>
-       
+
         {/* update profile */}
         <div className="hero bg-base-200 min-h-screen">
           <div className="hero-content flex-col">
@@ -68,20 +72,11 @@ const UpdateProfile = () => {
                   />
                 </div>
 
-              
-
-                
-
-               
                 {/* Submit Button */}
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Save change</button>
                 </div>
-
-               
               </form>
-
-            
             </div>
           </div>
         </div>

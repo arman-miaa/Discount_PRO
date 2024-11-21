@@ -3,6 +3,7 @@ import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import CopyToClipboard from "react-copy-to-clipboard";
 import toast, { Toaster } from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 
 const BrandDetails = () => {
@@ -25,11 +26,18 @@ const BrandDetails = () => {
     },[])
    
     return (
-        <div className="container mx-auto py-8">
-            {/* <Toaster></Toaster> */}
+      <div className="container mx-auto py-8">
+        {/* <Toaster></Toaster> */}
+        <Helmet>
+          <title> Brand Details Page</title>
+        </Helmet>
         {/* brand name , Logo and rating */}
         <div className="flex flex-col border-2 py-8 justify-center items-center bg-base-200 ">
-          <img className="w-36  object-cover border-2 rounded-xl" src={brand.brand_logo} alt="" />
+          <img
+            className="w-36  object-cover border-2 rounded-xl"
+            src={brand.brand_logo}
+            alt=""
+          />
           <h2 className="text-2xl font-semibold mt-4">{brand.brand_name}</h2>
           <p className="text-2xl mt-4">
             <span>⭐</span>
@@ -59,12 +67,10 @@ const BrandDetails = () => {
                 <strong>Expires:</strong> {coupon.expiry_date}
               </p>
 
-            
               <CopyToClipboard text={coupon.coupon_code} onCopy={handleCopy}>
                 <button className="btn btn-primary mt-4">Copy Code</button>
               </CopyToClipboard>
 
-              
               <button
                 className="btn btn-secondary ml-4 mt-4"
                 onClick={() => window.open(brand.shop_Link, "_blank")}
@@ -74,7 +80,6 @@ const BrandDetails = () => {
             </div>
           ))}
         </div>
-       
       </div>
     );
 };

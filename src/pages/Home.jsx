@@ -7,6 +7,7 @@ import BrandsSlide from "../components/BrandsSlide";
 import TopBrands from "../components/TopBrands";
 import Contact from "../components/Contact";
 import Review from "../components/Review";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   useEffect(() => {
@@ -18,6 +19,9 @@ const Home = () => {
 
   return (
     <div className="container mx-auto py-4">
+      <Helmet>
+        <title>Discount PRO || Home Page</title>
+      </Helmet>
       <div data-aos="fade-up">
         <Banner />
       </div>

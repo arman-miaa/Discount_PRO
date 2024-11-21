@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet";
 
 const MyProfile = () => {
   const { user } = useContext(AuthContext);
@@ -20,6 +21,9 @@ const MyProfile = () => {
   return (
     <div className="container mx-auto py-4 min-h-screen">
       {/* Profile Card */}
+      <Helmet>
+        <title>Discount PRO || Profile Page</title>
+      </Helmet>
       <div
         className="flex flex-col justify-center relative items-center mt-6 border-2 mx-4   md:w-1/2 md:mx-auto"
         data-aos="fade-up"
@@ -38,11 +42,11 @@ const MyProfile = () => {
         <div
           className="flex flex-col items-center -mt-12"
           data-aos="fade-up"
-          data-aos-delay="500" 
+          data-aos-delay="500"
         >
           <img
             className="w-36 h-36 object-cover border-2 rounded-full"
-            src={user?.photoURL || "https://via.placeholder.com/150"} // 
+            src={user?.photoURL || "https://via.placeholder.com/150"} //
             alt="user Photo"
           />
           <h3 className="mt-4 text-xl font-semibold">{user?.displayName}</h3>

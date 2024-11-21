@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -60,6 +61,9 @@ const Login = () => {
 
   return (
     <div className="hero bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 min-h-screen flex justify-center items-center">
+      <Helmet>
+        <title>Discount PRO || Login Page</title>
+      </Helmet>
       <div className="hero-content flex-col max-w-lg w-full bg-white shadow-lg rounded-lg p-8">
         <h1 className="text-3xl font-bold text-center text-blue-500 mb-6">
           Welcome Back!

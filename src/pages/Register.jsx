@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -92,15 +93,16 @@ const Register = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen border-t-4">
+      <Helmet>
+        <title>Discount PRO || Register Page</title>
+      </Helmet>
       <div className="hero-content flex-col">
         <h1 className="text-3xl font-bold mb-6 text-center text-primary">
           Create Your Account
         </h1>
         <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
           <form onSubmit={handleSubmit} className="card-body">
-            
             <div className="flex flex-col md:flex-row gap-4">
-              
               <div className="form-control md:w-1/2 w-full">
                 <label className="label">
                   <span className="label-text font-semibold">Full Name</span>
@@ -114,7 +116,6 @@ const Register = () => {
                 />
               </div>
 
-             
               <div className="form-control md:w-1/2 w-full">
                 <label className="label">
                   <span className="label-text font-semibold">Photo URL</span>
@@ -129,7 +130,6 @@ const Register = () => {
               </div>
             </div>
 
-            
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-semibold">Email Address</span>
@@ -143,7 +143,6 @@ const Register = () => {
               />
             </div>
 
-            
             <div className="form-control relative">
               <label className="label">
                 <span className="label-text font-semibold">Password</span>
@@ -164,16 +163,13 @@ const Register = () => {
               </button>
             </div>
 
-            
             {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
-            
             <div className="form-control mt-6">
               <button className="btn btn-primary w-full">Register</button>
             </div>
           </form>
 
-          
           <div className="form-control mt-4">
             <button
               onClick={handleSigInGoogle}
@@ -183,7 +179,6 @@ const Register = () => {
             </button>
           </div>
 
-          
           <p className="text-center mt-4 pb-6">
             Already have an account?{" "}
             <Link to="/login" className="text-blue-500 font-semibold underline">

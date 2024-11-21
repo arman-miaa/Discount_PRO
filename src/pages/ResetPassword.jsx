@@ -4,6 +4,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 import toast from "react-hot-toast";
 import { AuthContext } from "../provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const ResetPassword = () => {
   const location = useLocation();
@@ -53,6 +54,9 @@ const ResetPassword = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen">
+      <Helmet>
+        <title> Reset Password Page</title>
+      </Helmet>
       <div className="hero-content flex-col">
         <h1 className="text-2xl font-semibold">Reset Password Page</h1>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -73,7 +77,7 @@ const ResetPassword = () => {
             </div>
             {error && <p className="text-red-600">{error}</p>}
             <div className="form-control mt-6">
-              <Link  onClick={handleResetPassword} className="btn btn-primary">
+              <Link onClick={handleResetPassword} className="btn btn-primary">
                 Reset Password
               </Link>
             </div>

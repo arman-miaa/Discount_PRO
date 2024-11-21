@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const Brands = () => {
   const [searchText, setSearchText] = useState("");
@@ -26,12 +27,15 @@ const Brands = () => {
 
   return (
     <div className="container mx-auto py-8 px-4">
-     
+      <Helmet>
+        <title>Discount PRO || Brands Page</title>
+       
+      </Helmet>
+
       <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">
         Discover Your Favorite Brands
       </h1>
 
-     
       <div className="flex justify-center mb-8">
         <input
           type="text"
@@ -42,12 +46,10 @@ const Brands = () => {
         />
       </div>
 
-      
       {brands.length === 0 && (
         <div className="text-center text-gray-500">Loading...</div>
       )}
 
-     
       <div className="space-y-6">
         {filteredBrands.length > 0 ? (
           filteredBrands.map((brand) => (
@@ -55,7 +57,6 @@ const Brands = () => {
               key={brand._id}
               className="flex flex-col md:flex-row items-center bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300"
             >
-             
               <div className="w-full md:w-1/4 bg-gray-100 flex items-center justify-center p-6">
                 <img
                   src={brand.brand_logo}
@@ -64,7 +65,6 @@ const Brands = () => {
                 />
               </div>
 
-             
               <div className="w-full md:w-2/4 px-6 py-4">
                 <h2 className="text-xl font-semibold text-gray-800">
                   {brand.brand_name}
@@ -73,7 +73,6 @@ const Brands = () => {
                   {brand.description}
                 </p>
 
-             
                 <div className="flex items-center mt-4">
                   {Array.from({ length: Math.floor(brand.rating) }).map(
                     (_, i) => (
@@ -89,7 +88,6 @@ const Brands = () => {
                 </div>
               </div>
 
-             
               <div className="w-full md:w-1/4 flex flex-col items-center justify-center p-6">
                 <Link
                   to={`/brandDetails/${brand._id}`}
