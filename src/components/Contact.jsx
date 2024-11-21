@@ -1,4 +1,13 @@
+import toast from "react-hot-toast";
+
 const Contact = () => {
+
+  const handleSubmitForm = () => {
+    toast.success('Submited your feedback successfuly', {
+      position:"top-center",
+    })
+  }
+
   return (
     <div className=" bg-base-200">
       <div className="mb-16 w-full  bg-base-200  "></div>
@@ -70,7 +79,7 @@ const Contact = () => {
           </div>
 
           <div className="card bg-base-100 w-full   shadow-2xl">
-            <form className="card-body">
+            <form onSubmit={handleSubmitForm} className="card-body">
               <h1 className="text-center underline text-2xl font-bold">
                 Submit Form
               </h1>
@@ -79,7 +88,7 @@ const Contact = () => {
                   <span className="label-text">Full Name</span>
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="Enter Your Name"
                   className="input input-bordered"
                   required
@@ -108,7 +117,9 @@ const Contact = () => {
                 ></textarea>
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-[#9538E2] text-white font-bold text-2xl">
+                <button
+                  className="btn bg-[#9538E2] text-white font-bold text-2xl"
+                >
                   Submit
                 </button>
               </div>
