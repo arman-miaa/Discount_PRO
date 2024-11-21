@@ -8,11 +8,10 @@ const Brands = () => {
   const [debouncedSearch, setDebouncedSearch] = useState(searchText);
   const brands = useLoaderData();
 
- 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setDebouncedSearch(searchText);
-    }, 300); 
+    }, 300);
 
     return () => clearTimeout(timeoutId);
   }, [searchText]);
@@ -29,7 +28,6 @@ const Brands = () => {
     <div className="container mx-auto py-8 px-4">
       <Helmet>
         <title>Discount PRO || Brands Page</title>
-       
       </Helmet>
 
       <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">

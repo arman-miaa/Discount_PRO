@@ -1,13 +1,11 @@
-
-
 const Contact = () => {
- 
-
   return (
     <div className=" bg-base-200">
       <div className="mb-16 w-full  bg-base-200  "></div>
       <div className="text-center">
-        <h1 className="text-3xl font-semibold text-center pt-12">Stay Connected and Share Your Feedback</h1>
+        <h1 className="text-3xl font-semibold text-center pt-12">
+          Stay Connected and Share Your Feedback
+        </h1>
         <p className="md:w-1/2 mx-auto mt-4 px-4 md:px-0">
           Connect with us on social media to stay updated on the latest gadgets
           and tech news. We welcome your feedback and are here to assist you.

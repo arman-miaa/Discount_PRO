@@ -1,5 +1,4 @@
 import { useContext } from "react";
-// import MyProfile from "./MyProfile";
 import { AuthContext } from "../provider/AuthProvider";
 import { Navigate } from "react-router-dom";
 

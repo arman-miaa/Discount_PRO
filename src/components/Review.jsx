@@ -1,6 +1,5 @@
 import React from "react";
 
-// Sample data for reviews
 const reviews = [
   {
     reviewer_name: "Sofia Rahman",
@@ -45,19 +44,18 @@ const Review = () => {
             key={index}
             className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center"
           >
-            {/* Reviewer Photo */}
             <img
               src={review.reviewer_photo}
               alt={review.reviewer_name}
               className="w-20 h-20 rounded-full object-cover mb-4"
             />
-            {/* Reviewer Name */}
+
             <h2 className="text-xl font-semibold capitalize">
               {review.reviewer_name}
             </h2>
-            {/* Reviewer Role */}
+
             <p className="text-sm text-gray-500">{review.role}</p>
-            {/* Star Rating */}
+
             <div className="flex justify-center mt-2">
               {Array.from({ length: review.rating }, (_, i) => (
                 <span key={i} className="text-yellow-500 text-xl">
@@ -70,7 +68,7 @@ const Review = () => {
                 </span>
               ))}
             </div>
-            {/* Review Text */}
+
             <p className="text-gray-600 mt-4 italic">{`"${review.review}"`}</p>
           </div>
         ))}

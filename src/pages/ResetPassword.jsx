@@ -9,16 +9,14 @@ import { Helmet } from "react-helmet";
 const ResetPassword = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [email, setEmail] = useState(""); 
+  const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const { handleLogOut } = useContext(AuthContext);
 
   useEffect(() => {
     if (location.state?.email) {
-      console.log("Email from location.state:", location.state.email); 
-      setEmail(location.state.email); 
+      setEmail(location.state.email);
     } else {
-      console.log("No email found in state."); 
     }
   }, [location.state?.email]);
 
@@ -36,9 +34,9 @@ const ResetPassword = () => {
           position: "top-center",
         });
 
-          window.open("https://mail.google.com/mail/u/0/?authuser=0", "_blank");
-        navigate('/login')
-        handleLogOut()
+        window.open("https://mail.google.com/mail/u/0/?authuser=0", "_blank");
+        navigate("/login");
+        handleLogOut();
       })
       .catch((err) => {
         setError(err.message);

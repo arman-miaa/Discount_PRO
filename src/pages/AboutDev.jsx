@@ -17,12 +17,11 @@ const AboutDev = () => {
         <title>Discount PRO || About Page</title>
       </Helmet>
 
-     
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">About Me</h1>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          Hi! I'm Arman Mia, a passionate web developer with a focus on
-          building modern, user-friendly applications. I specialize in frontend
+          Hi! I'm Arman Mia, a passionate web developer with a focus on building
+          modern, user-friendly applications. I specialize in frontend
           technologies like React, Tailwind CSS, and JavaScript, and enjoy
           tackling complex problems while creating seamless user experiences.
         </p>
@@ -33,7 +32,6 @@ const AboutDev = () => {
         </p>
       </div>
 
-     
       <div className="text-center mb-12">
         <h2 className="text-3xl font-semibold text-gray-800 mb-6">
           My Projects

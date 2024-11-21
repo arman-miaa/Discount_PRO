@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 
 const UpdateProfile = () => {
   const { user, updateUserProfile } = useContext(AuthContext);
@@ -14,12 +15,19 @@ const UpdateProfile = () => {
     const name = form.name.value;
     const photo = form.photo.value;
 
-    // Update user profile
+   
     updateUserProfile({ displayName: name, photoURL: photo })
       .then(() => {
         navigate("/myProfile");
+         toast.success("Updated Your profile successfully ", {
+           position: "top-center",
+         });
       })
-      .catch((error) => console.log("Profile update error:", error));
+      .catch((error) => {
+         toast.success(" profile update error ", {
+           position: "top-center",
+         });
+      });
   };
 
   useEffect(() => {

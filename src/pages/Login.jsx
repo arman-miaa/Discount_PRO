@@ -51,7 +51,7 @@ const Login = () => {
         toast.success("Logged in successfully!", { position: "top-center" });
         form.reset();
         setError("");
-        const from = location.state?.from?.pathname || "/"; 
+        const from = location.state?.from?.pathname || "/";
         navigate(from);
       })
       .catch(() => {

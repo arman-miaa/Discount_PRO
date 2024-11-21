@@ -9,7 +9,7 @@ const BrandDetails = () => {
   const brand = useLoaderData();
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const location = useLocation(); // Get the location of the current page
+  const location = useLocation();
 
   // Handle coupon copy
   const handleCopy = () => {
@@ -19,9 +19,8 @@ const BrandDetails = () => {
   };
 
   useEffect(() => {
-    // Check if user is not logged in, redirect to login with the current page URL
     if (!user) {
-      navigate("/login", { state: { from: location } }); // Save the current location in state
+      navigate("/login", { state: { from: location } });
     }
   }, [user, navigate, location]);
 
@@ -31,7 +30,7 @@ const BrandDetails = () => {
       <Helmet>
         <title>Brand Details Page</title>
       </Helmet>
-      {/* Brand name, Logo, and rating */}
+
       <div className="flex flex-col border-2 py-8 justify-center items-center bg-base-200 ">
         <img
           className="w-36 object-cover border-2 rounded-xl"
@@ -44,7 +43,7 @@ const BrandDetails = () => {
           {brand.rating}
         </p>
       </div>
-      {/* Coupons section */}
+
       <h2 className="text-2xl font-bold text-center mt-12">
         Available Coupons
       </h2>

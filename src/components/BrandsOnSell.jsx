@@ -5,14 +5,13 @@ const BrandsOnSell = () => {
   const [brands, setBrands] = useState([]);
   const navigate = useNavigate();
   const handleCartClick = (brandId) => {
-  //  console.log('cart clicked');
-   navigate(`/brandDetails/${brandId}`);
- };
+    navigate(`/brandDetails/${brandId}`);
+  };
   useEffect(() => {
-    fetch("/collection.json") 
+    fetch("/collection.json")
       .then((res) => res.json())
       .then((data) => {
-        const filteredBrands = data.filter((brand) => brand.isSaleOn); 
+        const filteredBrands = data.filter((brand) => brand.isSaleOn);
         setBrands(filteredBrands);
       });
   }, []);
@@ -27,7 +26,8 @@ const BrandsOnSell = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {brands.map((brand) => (
-          <div onClick={()=>handleCartClick(brand._id)}
+          <div
+            onClick={() => handleCartClick(brand._id)}
             key={brand._id}
             className="border rounded-lg cursor-pointer shadow-md mx-4 md:mx-0 p-4 flex flex-col items-center"
           >

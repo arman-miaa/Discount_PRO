@@ -12,14 +12,13 @@ import Private from "../private/Private";
 import UpdateProfile from "../private/UpdateProfile";
 import ResetPassword from "../pages/ResetPassword";
 
-
 const router = createBrowserRouter(
   [
     {
       path: "/",
       element: <MainLayout></MainLayout>,
       errorElement: <ErrorPage></ErrorPage>,
-      
+
       children: [
         {
           path: "/",
@@ -63,11 +62,11 @@ const router = createBrowserRouter(
       ],
     },
     {
-      path: 'updateProfile',
+      path: "updateProfile",
       element: <UpdateProfile></UpdateProfile>,
     },
     {
-      path: 'resetPassword',
+      path: "resetPassword",
       element: <ResetPassword></ResetPassword>,
     },
   ],
@@ -83,7 +82,5 @@ const router = createBrowserRouter(
     },
   }
 );
-
-
 
 export default router;

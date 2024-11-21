@@ -13,9 +13,9 @@ const Header = () => {
 
   const handleSignOut = () => {
     handleLogOut();
-     toast.success("Log out successfully ", {
-       position: "top-center",
-     });
+    toast.success("Log out successfully ", {
+      position: "top-center",
+    });
   };
 
   const links = (

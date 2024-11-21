@@ -1,13 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
-// import Marquee from "react-fast-marquee";
 
 const TopBrands = () => {
   const navigate = useNavigate();
   const handleCart = (brandId) => {
     navigate(`/brandDetails/${brandId}`);
-  }
+  };
   const brands = [
     {
       _id: 1,
@@ -31,13 +29,12 @@ const TopBrands = () => {
       rating: 4.7,
       description: "Get groceries delivered to your home.",
       brand_logo: "https://i.ibb.co.com/vdNLHjm/1583844005259.jpg",
-  
+
       shop_Link: "https://www.chaldal.com",
       category: "Groceries",
       isSaleOn: true,
     },
   ];
-
 
   return (
     <div className=" bg-base-200 p-12 pb-20 mt-16">
@@ -50,7 +47,8 @@ const TopBrands = () => {
 
       <div className="grid  md:grid-cols-3 gap-8 mt-8">
         {brands.map((brand) => (
-          <div onClick={()=>handleCart(brand._id)}
+          <div
+            onClick={() => handleCart(brand._id)}
             className="border cursor-pointer rounded-lg shadow-md p-4 flex flex-col items-center"
             key={brand._id}
             brand={brand}
@@ -61,7 +59,9 @@ const TopBrands = () => {
               className="w-24 h-24 mt-4 object-cover rounded-full border-4 mb-4"
             />
             <h2 className="text-lg font-semibold mb-2">{brand.brand_name}</h2>
-            <p className="text-sm mb-2 text-center">Category: {brand.category}</p>
+            <p className="text-sm mb-2 text-center">
+              Category: {brand.category}
+            </p>
           </div>
         ))}
       </div>
@@ -70,6 +70,3 @@ const TopBrands = () => {
 };
 
 export default TopBrands;
-
-
-
