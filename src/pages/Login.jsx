@@ -21,7 +21,7 @@ const Login = () => {
           position: "top-center",
         });
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error("Failed to log in with Google. Please try again.", {
           position: "top-center",
         });
@@ -30,10 +30,9 @@ const Login = () => {
 
   // Handle Forget Password
   const handleForgetPassword = (e) => {
-    e.preventDefault(); // Prevent default link navigation behavior
+    e.preventDefault();
     const email = emailRef.current.value;
     navigate("/resetPassword", { state: { email } });
-    // console.log(email); 
   };
 
   // Handle User Login
@@ -51,7 +50,7 @@ const Login = () => {
         setError("");
         navigate("/");
       })
-      .catch((error) => {
+      .catch(() => {
         setError("Please provide a valid email and password.");
         toast.error("Invalid email or password. Please try again.", {
           position: "top-center",
@@ -60,71 +59,83 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col">
-          <h1 className="text-2xl font-semibold">Login Page</h1>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form onSubmit={handleLogIn} className="card-body">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  type="email"
-                  ref={emailRef}
-                  placeholder="Email"
-                  name="email"
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-              <div className="form-control relative">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                  name="password"
-                  className="input input-bordered"
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="btn btn-xs absolute right-4 top-12"
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </button>
-                <label className="label">
-                  <div
-                    onClick={handleForgetPassword}
-                    type="button"
-                    className="label-text-alt link link-hover"
-                  >
-                    Forgot password?
-                  </div>
-                </label>
-                <p className="text-red-800">{error}</p>
-              </div>
-              <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
-              </div>
-            </form>
-            <div className="form-control mt-6">
-              <button onClick={handleSigInGoogle} className="btn btn-primary">
-                Login with Google
-              </button>
-            </div>
-            <p>
-              Don't have an account?{" "}
-              <span className="text-red-500 underline">
-                <Link to="/register">Register</Link>
+    <div className="hero bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 min-h-screen flex justify-center items-center">
+      <div className="hero-content flex-col max-w-lg w-full bg-white shadow-lg rounded-lg p-8">
+        <h1 className="text-3xl font-bold text-center text-blue-500 mb-6">
+          Welcome Back!
+        </h1>
+        <form onSubmit={handleLogIn} className="space-y-4">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-semibold text-gray-700">
+                Email
               </span>
-            </p>
+            </label>
+            <input
+              type="email"
+              ref={emailRef}
+              placeholder="Enter your email"
+              name="email"
+              className="input input-bordered border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 w-full"
+              required
+            />
           </div>
+          <div className="form-control relative">
+            <label className="label">
+              <span className="label-text font-semibold text-gray-700">
+                Password
+              </span>
+            </label>
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter your password"
+              name="password"
+              className="input input-bordered border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 w-full"
+              required
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-4 top-[51px] text-xl text-gray-500 hover:text-blue-500"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
+          {error && <p className="text-red-600 text-sm">{error}</p>}
+          <div className="text-right">
+            <button
+              onClick={handleForgetPassword}
+              className="text-blue-500 hover:underline text-sm"
+            >
+              Forgot password?
+            </button>
+          </div>
+          <button className="btn btn-primary w-full py-3 font-semibold text-lg">
+            Login
+          </button>
+        </form>
+        <div className="mt-6">
+          <button
+            onClick={handleSigInGoogle}
+            className="btn btn-outline btn-primary w-full py-3 font-semibold flex items-center justify-center space-x-2"
+          >
+            <img
+              src="https://img.icons8.com/color/48/000000/google-logo.png"
+              alt="Google"
+              className="w-5 h-5"
+            />
+            <span>Login with Google</span>
+          </button>
         </div>
+        <p className="mt-6 text-center text-sm text-gray-500">
+          Don't have an account?{" "}
+          <Link
+            to="/register"
+            className="text-blue-500 hover:underline font-semibold"
+          >
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   );

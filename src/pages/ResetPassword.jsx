@@ -1,21 +1,23 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 import toast from "react-hot-toast";
+import { AuthContext } from "../provider/AuthProvider";
 
 const ResetPassword = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [email, setEmail] = useState(""); // Initialize as empty string
+  const [email, setEmail] = useState(""); 
   const [error, setError] = useState("");
+  const { handleLogOut } = useContext(AuthContext);
 
   useEffect(() => {
     if (location.state?.email) {
-      console.log("Email from location.state:", location.state.email); // Debugging
-      setEmail(location.state.email); // Set email from location state
+      console.log("Email from location.state:", location.state.email); 
+      setEmail(location.state.email); 
     } else {
-      console.log("No email found in state."); // Debugging
+      console.log("No email found in state."); 
     }
   }, [location.state?.email]);
 
@@ -34,7 +36,8 @@ const ResetPassword = () => {
         });
 
           window.open("https://mail.google.com/mail/u/0/?authuser=0", "_blank");
-          navigate('/login')
+        navigate('/login')
+        handleLogOut()
       })
       .catch((err) => {
         setError(err.message);
@@ -51,7 +54,7 @@ const ResetPassword = () => {
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col">
-        <h1 className="text-2xl font-semibold">Reset Password</h1>
+        <h1 className="text-2xl font-semibold">Reset Password Page</h1>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
             <div className="form-control">

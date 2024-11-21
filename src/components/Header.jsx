@@ -97,7 +97,7 @@ const Header = () => {
                 />
                 <h3 className="hidden md:flex">{user.email}</h3>
                 <div className="ml-4  px-4 pb-[6px] pt-[2px] bg-red-500 text-white rounded-xl">
-                  <NavLink  onClick={handleSignOut} to="/register">
+                  <NavLink onClick={handleSignOut} to="/register">
                     LogOut
                   </NavLink>
                 </div>
@@ -105,8 +105,30 @@ const Header = () => {
             </div>
           ) : (
             <div className="flex space-x-4">
-              <NavLink to="/login">Login</NavLink>
-              <NavLink to="/register">Register</NavLink>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  `border-2 font-bold px-6 py-2 rounded-full transition-all duration-300 ${
+                    isActive
+                      ? "bg-blue-500 text-white"
+                      : "bg-white text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white hover:shadow-md"
+                  }`
+                }
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  `border-2 font-bold px-6 py-2 rounded-full transition-all duration-300 ${
+                    isActive
+                      ? "bg-blue-500 text-white"
+                      : "bg-white text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white hover:shadow-md"
+                  }`
+                }
+              >
+                Register
+              </NavLink>
             </div>
           )}
         </div>
