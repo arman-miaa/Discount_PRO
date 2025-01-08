@@ -52,6 +52,39 @@
 ---
 
 ## Live Link 🌐  
-- Firebase Live Link: 👉 [https://ph-assignment-9-799f5.web.app/](https://ph-assignment-9-799f5.web.app/)  
 
-- Netlify Live Link: 👉 [https://ph-a9-authentication-project.netlify.app/](https://ph-a9-authentication-project.netlify.app/)  
+- Netlify Live Link: 👉 [https://discount-pro-project.netlify.app/](https://discount-pro-project.netlify.app/)  
+
+---
+
+## 📦 Dependencies Used
+
+### Core Dependencies:
+- **React**: A library for building user interfaces.
+- **React-DOM**: React rendering library.
+- **React-Router-Dom**: For dynamic routing within the app.
+- **Firebase**: Authentication and backend services for user login and data management.
+- **React-Toastify**: For displaying toast notifications.
+- **AOS**: Animate On Scroll for smooth animations.
+- **React-Icons**: Provides a set of commonly used icons.
+- **SweetAlert2**: For interactive alerts and confirmation dialogs.
+- **Match-Sorter**: Used for sorting arrays.
+
+### Dev Dependencies:
+- **TailwindCSS**: A utility-first CSS framework for creating modern designs.
+- **DaisyUI**: Component library built on top of TailwindCSS.
+- **Vite**: A fast build tool and development server.
+- **ESLint**: A tool for identifying and fixing problems in JavaScript code.
+- **PostCSS**: CSS transformations and optimizations.
+- **Autoprefixer**: Adds vendor prefixes to CSS.
+
+
+## 🖥️ Setup Instructions
+
+To get this project running locally, follow these steps:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/arman-miaa/Discount-PRO.git && cd Discount-PRO
+ && npm run dev
